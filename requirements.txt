@@ -6,4 +6,6 @@ gnureadline==6.3.3
 ipython==2.3.1
 six==1.8.0
 tornado==4.0.2
+torndb==0.3
+torndsession==1.1.2
 wsgiref==0.1.2
