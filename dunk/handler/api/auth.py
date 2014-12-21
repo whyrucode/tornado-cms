@@ -1,6 +1,6 @@
 # coding: utf8
 
-from dunk.api.dbapi import database
+from dunk.handler.api.db import database
 
 def check(username,password):
 
