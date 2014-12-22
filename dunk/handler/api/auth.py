@@ -1,8 +1,8 @@
 # coding: utf8
 
-from dunk.handler.api.db import database
+from dunk.model.db import database
 
-def check(username,password):
+def check_user(username,password):
 
     try:
         data = database.query('select name,password from sys_user')
@@ -15,3 +15,5 @@ def check(username,password):
         raise
     finally:
         database.close()
+
+
