@@ -1,5 +1,5 @@
 # coding: utf8
-import tornado
+
 from tornado.web import RequestHandler
 from dunk.utils.template import st
 from dunk.utils.decorators import render
@@ -7,7 +7,7 @@ from dunk.handler.api.auth import check_user
 
 
 class LoginHandler(RequestHandler):
-    #@tornado.web.authenticated
+
     @render
     def get(self):
         return st('user/login.html',message='登陆')
