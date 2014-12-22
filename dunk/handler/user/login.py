@@ -7,7 +7,7 @@ from dunk.handler.api.auth import check_user
 
 
 class LoginHandler(RequestHandler):
-    @tornado.web.authenticated
+    #@tornado.web.authenticated
     @render
     def get(self):
         return st('user/login.html',message='登陆')
