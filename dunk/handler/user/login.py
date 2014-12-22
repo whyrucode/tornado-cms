@@ -8,7 +8,7 @@ from dunk.handler.api.auth import check
 
 
 class LoginHandler(RequestHandler):
-    @tornado.web.authenticated
+    #@tornado.web.authenticated
     @render
     def get(self):
         return st('user/login.html',message='登陆')
@@ -17,7 +17,7 @@ class LoginHandler(RequestHandler):
          name = self._get_argument('login_name')
          passwd = self.get_argument('password')
 
-         if not check(name,passwd):
+         if not check_user(name,passwd):
              return self.write("账户名或者密码错误！")
 
          self.set_secure_cookie('usr',name)
