@@ -1,6 +1,7 @@
 # coding: utf8
 
-from dunk.model.db import database
+from dunk.utils.db import database
+
 
 def check_user(username,password):
 
@@ -15,5 +16,3 @@ def check_user(username,password):
         raise
     finally:
         database.close()
-
-
