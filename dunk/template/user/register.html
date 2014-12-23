@@ -3,11 +3,15 @@
 <head>
     <title>用户注册</title>
 </head>
+
 <body>
- <input type="login" class="form-control" placeholder="用户名" name="login" required autofocus>
- <input type="password" class="form-control" placeholder="密码"  name="password" required>
- <input type="re_password" class="form-control" placeholder="测试密码"  name="password" required>
+ <form  action="/user/register" method="post" class="form-signin" role="form">
+ <input type="register_name" class="form-control" placeholder="用户名" name="register_name" required autofocus>
+ <input type="register_password" class="form-control" placeholder="密码"  name="register_password" required>
+ <input type="repeat_passwd" class="form-control" placeholder="确认密码"  name="repeat_passwd" required>
 
+ <button class="btn btn-lg btn-primary btn-block" type="submit">  注册  </button>
 
+</form>
 </body>
 </html>
