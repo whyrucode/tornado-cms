@@ -1,8 +1,10 @@
-#coding=utf-8
+# coding=utf-8
+
 from tornado.web import RequestHandler
 from dunk.utils.template import st
 from dunk.utils.decorators import render
 from dunk.utils.db import database
+from dunk.model.user import User
 
 class RegisterHandler(RequestHandler):
 
@@ -23,16 +25,10 @@ class RegisterHandler(RequestHandler):
             self.write("twice password don't match ")
         else:
             try:
-                #判定是否存在
-                result_list = database.query('select name from sys_user where name="%s"'%register_name)
-                print "user_is_exisit",len(result_list),result_list
-                
-                if len(result_list):
+                if User.get_user_by_name(register_name):
                     ''' this user have been registed'''
                     self.write("user exist")
-
                 else:
-                    #insert mysql
                     result = database.execute('insert into tornadoDB.sys_user(name,password) values("%s","%s")'%(register_name,register_passwd))
                     self.write("regster sucess !")
 
@@ -40,5 +36,4 @@ class RegisterHandler(RequestHandler):
                 raise
             finally:
                 database.close()
-                #self.redirect('/home')
 
