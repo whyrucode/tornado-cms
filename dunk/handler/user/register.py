@@ -17,7 +17,7 @@ class RegisterHandler(RequestHandler):
         register_passwd = self.get_argument('register_password')
         repeat_passwd = self.get_argument('repeat_passwd')
         
-        print register_name 
+        print register_name
         print register_passwd
 
         if register_passwd != repeat_passwd:
@@ -29,8 +29,11 @@ class RegisterHandler(RequestHandler):
                     ''' this user have been registed'''
                     self.write("user exist")
                 else:
-                    result = database.execute('insert into tornadoDB.sys_user(name,password) values("%s","%s")'%(register_name,register_passwd))
-                    self.write("regster sucess !")
+                    if User.add_user_by_name_passwd(register_name,register_passwd):
+                        self.write("regster sucess.")
+                    else:
+                        self.write("Add error.")
+
 
             except:
                 raise
