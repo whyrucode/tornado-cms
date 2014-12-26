@@ -26,11 +26,6 @@ class Articler(object):
         print Add_Node
         database2.insert_by_dict(_table_name,Add_Node)
 
-        #result = database.execute("insert into _table_name(id,article_catlog1,article_catlog2,auther,title,text,info) values(UUID(),"%s","%s","%s","%s","%s","%s"')%(Add_Node['catlog1'],Add_Node['catlog2'],Add_Node['auther'],Add_Node['title'],Add_Node['text'],Add_Node['info'])")
-
-        #print "add_one_list",result
-
-
     @classmethod
     def check_article(self,Add_Node):
         return  True
