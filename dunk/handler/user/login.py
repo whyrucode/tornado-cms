@@ -3,7 +3,7 @@
 from tornado.web import RequestHandler
 from dunk.utils.template import st
 from dunk.utils.decorators import render
-from dunk.handler.api.auth import check_user
+from dunk.model.user import User
 
 
 class LoginHandler(RequestHandler):
@@ -19,8 +19,10 @@ class LoginHandler(RequestHandler):
 
          print "logn_name",name
          print "password",passwd
+
+         user = User.get_user_by_name_and_password(name, passwd)
     
-         if not check_user(name,passwd):
+         if not user:
              return self.write("账户名或者密码错误！")
 
          #self.set_secure_cookie('usr',name)
