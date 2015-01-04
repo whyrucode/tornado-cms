@@ -14,9 +14,9 @@ def make_app():
         'template_path' : os.path.join(os.path.dirname(__file__), "/dunk/templates") ,
         'cookie_secret': 'bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E=',
         'login_url':'/user/login',
-        'log_function':r'/var/log/httpd.log'
+        #'log_function':r'/var/log/httpd.log'
     }
-    return Application(ROUTE_MAP)
+    return Application(ROUTE_MAP,**settings)
 
 
 if __name__ == '__main__':
