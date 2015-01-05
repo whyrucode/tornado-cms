@@ -12,7 +12,7 @@ def make_app():
         'login_url': '/user/login'
     }
     URL_MAP = ROUTE_MAP + [
-         (r'/statics/(.*)', StaticFileHandler, {"path": "./statics"})
+         (r'/static/(.*)', StaticFileHandler, {"path": "./static"})
     ]
     return Application(URL_MAP, **settings)
 
